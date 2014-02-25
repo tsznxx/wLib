@@ -1,0 +1,586 @@
+# source files.
+SRC = $(wildcard *.c)
+
+OBJ = $(SRC:.c=.o)
+
+OUT = libRNA.a
+
+# include directories
+INCLUDES = -I../H
+
+# C++ compiler flags (-g -O2 -Wall)
+CCFLAGS = -g -w -fPIC 
+
+# compiler
+CCC = gcc
+
+# library paths
+LIBS = 
+
+# compile flags
+LDFLAGS = -fPIC
+
+.SUFFIXES: .c
+
+default: dep $(OUT)
+
+.c.o:
+	$(CCC) $(INCLUDES) $(CCFLAGS) -c $< -o $@
+
+$(OUT): $(OBJ)
+	ar rcs $(OUT) $(OBJ)
+
+depend: dep
+
+dep:
+	makedepend -- $(CFLAGS) -- $(INCLUDES) $(SRC)
+
+clean:
+	rm -f $(OBJ) $(OUT) Makefile.bak 
+# DO NOT DELETE
+
+alifold.o: ../H/config.h /usr/include/stdio.h /usr/include/features.h
+alifold.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+alifold.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+alifold.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+alifold.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+alifold.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+alifold.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+alifold.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+alifold.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+alifold.o: /usr/include/sys/types.h /usr/include/time.h
+alifold.o: /usr/include/sys/select.h /usr/include/bits/select.h
+alifold.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+alifold.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+alifold.o: /usr/include/alloca.h /usr/include/math.h
+alifold.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+alifold.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+alifold.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+alifold.o: /usr/include/bits/mathcalls.h /usr/include/ctype.h
+alifold.o: /usr/include/xlocale.h /usr/include/string.h ../H/fold.h
+alifold.o: ../H/utils.h ../H/energy_par.h ../H/energy_const.h
+alifold.o: ../H/fold_vars.h ../H/pair_mat.h ../H/params.h ../H/ribo.h
+alifold.o: alicircfold.inc
+alipfold.o: /usr/include/stdio.h /usr/include/features.h
+alipfold.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+alipfold.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+alipfold.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+alipfold.o: /usr/include/libio.h /usr/include/_G_config.h
+alipfold.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+alipfold.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+alipfold.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+alipfold.o: /usr/include/endian.h /usr/include/bits/endian.h
+alipfold.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+alipfold.o: /usr/include/time.h /usr/include/sys/select.h
+alipfold.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+alipfold.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+alipfold.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+alipfold.o: /usr/include/string.h /usr/include/xlocale.h /usr/include/math.h
+alipfold.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+alipfold.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+alipfold.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+alipfold.o: /usr/include/bits/mathcalls.h ../H/utils.h ../H/energy_par.h
+alipfold.o: ../H/energy_const.h ../H/fold_vars.h ../H/pair_mat.h
+alipfold.o: /usr/include/ctype.h ../H/PS_dot.h ../H/alifold.h ../H/ribo.h
+aln_util.o: /usr/include/stdio.h /usr/include/features.h
+aln_util.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+aln_util.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+aln_util.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+aln_util.o: /usr/include/libio.h /usr/include/_G_config.h
+aln_util.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+aln_util.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+aln_util.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+aln_util.o: /usr/include/endian.h /usr/include/bits/endian.h
+aln_util.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+aln_util.o: /usr/include/time.h /usr/include/sys/select.h
+aln_util.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+aln_util.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+aln_util.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+aln_util.o: /usr/include/errno.h /usr/include/bits/errno.h
+aln_util.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+aln_util.o: /usr/include/asm-generic/errno.h
+aln_util.o: /usr/include/asm-generic/errno-base.h /usr/include/string.h
+aln_util.o: /usr/include/xlocale.h /usr/include/ctype.h ../H/config.h
+aln_util.o: ../H/utils.h ../H/fold_vars.h ../H/pair_mat.h
+cofold.o: ../H/config.h /usr/include/stdio.h /usr/include/features.h
+cofold.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+cofold.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+cofold.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+cofold.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+cofold.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+cofold.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+cofold.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+cofold.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+cofold.o: /usr/include/sys/types.h /usr/include/time.h
+cofold.o: /usr/include/sys/select.h /usr/include/bits/select.h
+cofold.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+cofold.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+cofold.o: /usr/include/alloca.h /usr/include/math.h
+cofold.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+cofold.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+cofold.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+cofold.o: /usr/include/bits/mathcalls.h /usr/include/ctype.h
+cofold.o: /usr/include/xlocale.h /usr/include/string.h ../H/utils.h
+cofold.o: ../H/energy_par.h ../H/energy_const.h ../H/fold_vars.h
+cofold.o: ../H/pair_mat.h ../H/params.h ../H/subopt.h
+duplex.o: ../H/config.h /usr/include/stdio.h /usr/include/features.h
+duplex.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+duplex.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+duplex.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+duplex.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+duplex.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+duplex.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+duplex.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+duplex.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+duplex.o: /usr/include/sys/types.h /usr/include/time.h
+duplex.o: /usr/include/sys/select.h /usr/include/bits/select.h
+duplex.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+duplex.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+duplex.o: /usr/include/alloca.h /usr/include/math.h
+duplex.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+duplex.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+duplex.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+duplex.o: /usr/include/bits/mathcalls.h /usr/include/ctype.h
+duplex.o: /usr/include/xlocale.h /usr/include/string.h ../H/utils.h
+duplex.o: ../H/energy_par.h ../H/energy_const.h ../H/fold_vars.h ../H/fold.h
+duplex.o: ../H/pair_mat.h ../H/params.h ../H/duplex.h
+energy_par.o: ../H/energy_const.h intloops.h
+findpath.o: /usr/include/stdio.h /usr/include/features.h
+findpath.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+findpath.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+findpath.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+findpath.o: /usr/include/libio.h /usr/include/_G_config.h
+findpath.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+findpath.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+findpath.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+findpath.o: /usr/include/endian.h /usr/include/bits/endian.h
+findpath.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+findpath.o: /usr/include/time.h /usr/include/sys/select.h
+findpath.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+findpath.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+findpath.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+findpath.o: /usr/include/string.h /usr/include/xlocale.h
+findpath.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
+findpath.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
+findpath.o: /usr/include/bits/posix2_lim.h ../H/findpath.h ../H/fold.h
+findpath.o: ../H/fold_vars.h ../H/utils.h ../H/pair_mat.h
+findpath.o: /usr/include/ctype.h
+fold.o: ../H/config.h /usr/include/stdio.h /usr/include/features.h
+fold.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+fold.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+fold.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+fold.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+fold.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+fold.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+fold.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+fold.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+fold.o: /usr/include/sys/types.h /usr/include/time.h
+fold.o: /usr/include/sys/select.h /usr/include/bits/select.h
+fold.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+fold.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+fold.o: /usr/include/alloca.h /usr/include/math.h
+fold.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+fold.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+fold.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+fold.o: /usr/include/bits/mathcalls.h /usr/include/ctype.h
+fold.o: /usr/include/xlocale.h /usr/include/string.h ../H/utils.h
+fold.o: ../H/energy_par.h ../H/energy_const.h ../H/fold_vars.h
+fold.o: ../H/pair_mat.h ../H/params.h circfold.inc
+fold_vars.o: /usr/include/string.h /usr/include/features.h
+fold_vars.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+fold_vars.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+fold_vars.o: /usr/include/xlocale.h /usr/include/stdio.h
+fold_vars.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+fold_vars.o: /usr/include/libio.h /usr/include/_G_config.h
+fold_vars.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+fold_vars.o: /usr/include/bits/sys_errlist.h ../H/fold_vars.h
+inverse.o: /usr/include/stdio.h /usr/include/features.h
+inverse.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+inverse.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+inverse.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+inverse.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+inverse.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+inverse.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+inverse.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+inverse.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+inverse.o: /usr/include/sys/types.h /usr/include/time.h
+inverse.o: /usr/include/sys/select.h /usr/include/bits/select.h
+inverse.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+inverse.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+inverse.o: /usr/include/alloca.h /usr/include/string.h /usr/include/xlocale.h
+inverse.o: /usr/include/ctype.h /usr/include/math.h
+inverse.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+inverse.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+inverse.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+inverse.o: /usr/include/bits/mathcalls.h ../H/part_func.h ../H/fold.h
+inverse.o: ../H/utils.h ../H/fold_vars.h ../H/pair_mat.h
+Lfold.o: ../H/config.h /usr/include/stdio.h /usr/include/features.h
+Lfold.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+Lfold.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+Lfold.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+Lfold.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+Lfold.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+Lfold.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+Lfold.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+Lfold.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+Lfold.o: /usr/include/sys/types.h /usr/include/time.h
+Lfold.o: /usr/include/sys/select.h /usr/include/bits/select.h
+Lfold.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+Lfold.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+Lfold.o: /usr/include/alloca.h /usr/include/math.h
+Lfold.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+Lfold.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+Lfold.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+Lfold.o: /usr/include/bits/mathcalls.h /usr/include/ctype.h
+Lfold.o: /usr/include/xlocale.h /usr/include/string.h ../H/utils.h
+Lfold.o: ../H/energy_par.h ../H/energy_const.h ../H/fold_vars.h
+Lfold.o: ../H/pair_mat.h ../H/params.h
+list.o: /usr/include/stdio.h /usr/include/features.h /usr/include/sys/cdefs.h
+list.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+list.o: /usr/include/gnu/stubs-64.h /usr/include/bits/types.h
+list.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+list.o: /usr/include/_G_config.h /usr/include/wchar.h
+list.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+list.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+list.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+list.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+list.o: /usr/include/sys/types.h /usr/include/time.h
+list.o: /usr/include/sys/select.h /usr/include/bits/select.h
+list.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+list.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+list.o: /usr/include/alloca.h ../H/utils.h list.h
+LPfold.o: ../H/config.h /usr/include/stdio.h /usr/include/features.h
+LPfold.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+LPfold.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+LPfold.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+LPfold.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+LPfold.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+LPfold.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+LPfold.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+LPfold.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+LPfold.o: /usr/include/sys/types.h /usr/include/time.h
+LPfold.o: /usr/include/sys/select.h /usr/include/bits/select.h
+LPfold.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+LPfold.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+LPfold.o: /usr/include/alloca.h /usr/include/string.h /usr/include/xlocale.h
+LPfold.o: /usr/include/math.h /usr/include/bits/huge_val.h
+LPfold.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+LPfold.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+LPfold.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+LPfold.o: ../H/utils.h ../H/energy_par.h ../H/energy_const.h ../H/fold_vars.h
+LPfold.o: ../H/pair_mat.h /usr/include/ctype.h ../H/PS_dot.h ../H/part_func.h
+LPfold.o: ../H/LPfold.h
+MEA.o: /usr/include/stdio.h /usr/include/features.h /usr/include/sys/cdefs.h
+MEA.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+MEA.o: /usr/include/gnu/stubs-64.h /usr/include/bits/types.h
+MEA.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+MEA.o: /usr/include/_G_config.h /usr/include/wchar.h
+MEA.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+MEA.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+MEA.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+MEA.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+MEA.o: /usr/include/sys/types.h /usr/include/time.h /usr/include/sys/select.h
+MEA.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+MEA.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+MEA.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+MEA.o: /usr/include/string.h /usr/include/xlocale.h /usr/include/math.h
+MEA.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+MEA.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+MEA.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+MEA.o: /usr/include/bits/mathcalls.h ../H/utils.h ../H/PS_dot.h
+naview.o: /usr/include/stdio.h /usr/include/features.h
+naview.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+naview.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+naview.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+naview.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+naview.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+naview.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+naview.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+naview.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+naview.o: /usr/include/sys/types.h /usr/include/time.h
+naview.o: /usr/include/sys/select.h /usr/include/bits/select.h
+naview.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+naview.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+naview.o: /usr/include/alloca.h /usr/include/string.h /usr/include/xlocale.h
+naview.o: /usr/include/math.h /usr/include/bits/huge_val.h
+naview.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+naview.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+naview.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+naview.o: ../H/utils.h
+params.o: ../H/config.h /usr/include/stdio.h /usr/include/features.h
+params.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+params.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+params.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+params.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+params.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+params.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+params.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+params.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+params.o: /usr/include/sys/types.h /usr/include/time.h
+params.o: /usr/include/sys/select.h /usr/include/bits/select.h
+params.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+params.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+params.o: /usr/include/alloca.h /usr/include/math.h
+params.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+params.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+params.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+params.o: /usr/include/bits/mathcalls.h /usr/include/string.h
+params.o: /usr/include/xlocale.h ../H/energy_par.h ../H/energy_const.h
+params.o: ../H/fold_vars.h ../H/utils.h ../H/params.h
+part_func.o: ../H/config.h /usr/include/stdio.h /usr/include/features.h
+part_func.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+part_func.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+part_func.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+part_func.o: /usr/include/libio.h /usr/include/_G_config.h
+part_func.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+part_func.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+part_func.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+part_func.o: /usr/include/endian.h /usr/include/bits/endian.h
+part_func.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+part_func.o: /usr/include/time.h /usr/include/sys/select.h
+part_func.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+part_func.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+part_func.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+part_func.o: /usr/include/string.h /usr/include/xlocale.h /usr/include/math.h
+part_func.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+part_func.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+part_func.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+part_func.o: /usr/include/bits/mathcalls.h ../H/utils.h ../H/energy_par.h
+part_func.o: ../H/energy_const.h ../H/fold_vars.h ../H/pair_mat.h
+part_func.o: /usr/include/ctype.h
+part_func_co.o: ../H/config.h /usr/include/stdio.h /usr/include/features.h
+part_func_co.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+part_func_co.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+part_func_co.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+part_func_co.o: /usr/include/libio.h /usr/include/_G_config.h
+part_func_co.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+part_func_co.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+part_func_co.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+part_func_co.o: /usr/include/endian.h /usr/include/bits/endian.h
+part_func_co.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+part_func_co.o: /usr/include/time.h /usr/include/sys/select.h
+part_func_co.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+part_func_co.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+part_func_co.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+part_func_co.o: /usr/include/string.h /usr/include/xlocale.h
+part_func_co.o: /usr/include/math.h /usr/include/bits/huge_val.h
+part_func_co.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+part_func_co.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+part_func_co.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+part_func_co.o: ../H/utils.h ../H/energy_par.h ../H/energy_const.h
+part_func_co.o: ../H/fold_vars.h ../H/pair_mat.h /usr/include/ctype.h
+part_func_co.o: ../H/PS_dot.h ../H/part_func_co.h
+part_func_up.o: ../H/config.h /usr/include/stdio.h /usr/include/features.h
+part_func_up.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+part_func_up.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+part_func_up.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+part_func_up.o: /usr/include/libio.h /usr/include/_G_config.h
+part_func_up.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+part_func_up.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+part_func_up.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+part_func_up.o: /usr/include/endian.h /usr/include/bits/endian.h
+part_func_up.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+part_func_up.o: /usr/include/time.h /usr/include/sys/select.h
+part_func_up.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+part_func_up.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+part_func_up.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+part_func_up.o: /usr/include/string.h /usr/include/xlocale.h
+part_func_up.o: /usr/include/math.h /usr/include/bits/huge_val.h
+part_func_up.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+part_func_up.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+part_func_up.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+part_func_up.o: /usr/include/unistd.h /usr/include/bits/posix_opt.h
+part_func_up.o: /usr/include/bits/environments.h /usr/include/bits/confname.h
+part_func_up.o: /usr/include/getopt.h ../H/fold.h ../H/utils.h
+part_func_up.o: ../H/energy_par.h ../H/energy_const.h ../H/fold_vars.h
+part_func_up.o: ../H/pair_mat.h /usr/include/ctype.h ../H/params.h
+part_func_up.o: ../H/part_func.h ../H/part_func_up.h ../H/duplex.h
+ProfileAln.o: /usr/include/stdio.h /usr/include/features.h
+ProfileAln.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+ProfileAln.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+ProfileAln.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+ProfileAln.o: /usr/include/libio.h /usr/include/_G_config.h
+ProfileAln.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+ProfileAln.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+ProfileAln.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+ProfileAln.o: /usr/include/endian.h /usr/include/bits/endian.h
+ProfileAln.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+ProfileAln.o: /usr/include/time.h /usr/include/sys/select.h
+ProfileAln.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+ProfileAln.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+ProfileAln.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+ProfileAln.o: /usr/include/string.h /usr/include/xlocale.h
+ProfileAln.o: /usr/include/ctype.h /usr/include/math.h
+ProfileAln.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+ProfileAln.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+ProfileAln.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+ProfileAln.o: /usr/include/bits/mathcalls.h ../H/dist_vars.h ../H/fold_vars.h
+ProfileAln.o: ../H/part_func.h ../H/utils.h
+ProfileDist.o: /usr/include/stdio.h /usr/include/features.h
+ProfileDist.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+ProfileDist.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+ProfileDist.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+ProfileDist.o: /usr/include/libio.h /usr/include/_G_config.h
+ProfileDist.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+ProfileDist.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+ProfileDist.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+ProfileDist.o: /usr/include/endian.h /usr/include/bits/endian.h
+ProfileDist.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+ProfileDist.o: /usr/include/time.h /usr/include/sys/select.h
+ProfileDist.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+ProfileDist.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+ProfileDist.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+ProfileDist.o: /usr/include/string.h /usr/include/xlocale.h
+ProfileDist.o: /usr/include/ctype.h /usr/include/math.h
+ProfileDist.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+ProfileDist.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+ProfileDist.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+ProfileDist.o: /usr/include/bits/mathcalls.h ../H/dist_vars.h
+ProfileDist.o: ../H/fold_vars.h ../H/part_func.h ../H/utils.h
+PS_dot.o: ../H/config.h /usr/include/stdio.h /usr/include/features.h
+PS_dot.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+PS_dot.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+PS_dot.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+PS_dot.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+PS_dot.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+PS_dot.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+PS_dot.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+PS_dot.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+PS_dot.o: /usr/include/sys/types.h /usr/include/time.h
+PS_dot.o: /usr/include/sys/select.h /usr/include/bits/select.h
+PS_dot.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+PS_dot.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+PS_dot.o: /usr/include/alloca.h /usr/include/math.h
+PS_dot.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+PS_dot.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+PS_dot.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+PS_dot.o: /usr/include/bits/mathcalls.h /usr/include/string.h
+PS_dot.o: /usr/include/xlocale.h /usr/include/ctype.h ../H/utils.h
+PS_dot.o: ../H/fold_vars.h ../H/PS_dot.h ../H/pair_mat.h ../H/aln_util.h
+read_epars.o: /usr/include/stdio.h /usr/include/features.h
+read_epars.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+read_epars.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+read_epars.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+read_epars.o: /usr/include/libio.h /usr/include/_G_config.h
+read_epars.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+read_epars.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+read_epars.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+read_epars.o: /usr/include/endian.h /usr/include/bits/endian.h
+read_epars.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+read_epars.o: /usr/include/time.h /usr/include/sys/select.h
+read_epars.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+read_epars.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+read_epars.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+read_epars.o: /usr/include/ctype.h /usr/include/xlocale.h
+read_epars.o: /usr/include/string.h /usr/include/math.h
+read_epars.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+read_epars.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+read_epars.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+read_epars.o: /usr/include/bits/mathcalls.h ../H/utils.h ../H/energy_const.h
+read_epars.o: ../H/energy_par.h
+ribo.o: /usr/include/stdlib.h /usr/include/features.h
+ribo.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+ribo.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+ribo.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+ribo.o: /usr/include/endian.h /usr/include/bits/endian.h
+ribo.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+ribo.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+ribo.o: /usr/include/time.h /usr/include/sys/select.h
+ribo.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+ribo.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+ribo.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+ribo.o: /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h
+ribo.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+ribo.o: /usr/include/bits/sys_errlist.h ../H/utils.h
+RNAstruct.o: /usr/include/stdio.h /usr/include/features.h
+RNAstruct.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+RNAstruct.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+RNAstruct.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+RNAstruct.o: /usr/include/libio.h /usr/include/_G_config.h
+RNAstruct.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+RNAstruct.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+RNAstruct.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+RNAstruct.o: /usr/include/endian.h /usr/include/bits/endian.h
+RNAstruct.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+RNAstruct.o: /usr/include/time.h /usr/include/sys/select.h
+RNAstruct.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+RNAstruct.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+RNAstruct.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+RNAstruct.o: /usr/include/string.h /usr/include/xlocale.h
+RNAstruct.o: /usr/include/ctype.h ../H/utils.h
+stringdist.o: /usr/include/stdio.h /usr/include/features.h
+stringdist.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+stringdist.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+stringdist.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+stringdist.o: /usr/include/libio.h /usr/include/_G_config.h
+stringdist.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+stringdist.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+stringdist.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+stringdist.o: /usr/include/endian.h /usr/include/bits/endian.h
+stringdist.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+stringdist.o: /usr/include/time.h /usr/include/sys/select.h
+stringdist.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+stringdist.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+stringdist.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+stringdist.o: /usr/include/string.h /usr/include/xlocale.h
+stringdist.o: /usr/include/ctype.h /usr/include/math.h
+stringdist.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+stringdist.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+stringdist.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+stringdist.o: /usr/include/bits/mathcalls.h ../H/edit_cost.h ../H/dist_vars.h
+stringdist.o: ../H/utils.h
+subopt.o: ../H/config.h /usr/include/stdio.h /usr/include/features.h
+subopt.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+subopt.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+subopt.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+subopt.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+subopt.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+subopt.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+subopt.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+subopt.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+subopt.o: /usr/include/sys/types.h /usr/include/time.h
+subopt.o: /usr/include/sys/select.h /usr/include/bits/select.h
+subopt.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+subopt.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+subopt.o: /usr/include/alloca.h /usr/include/ctype.h /usr/include/xlocale.h
+subopt.o: /usr/include/string.h /usr/include/math.h
+subopt.o: /usr/include/bits/huge_val.h /usr/include/bits/huge_valf.h
+subopt.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+subopt.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+subopt.o: /usr/include/bits/mathcalls.h ../H/fold.h ../H/utils.h
+subopt.o: ../H/energy_par.h ../H/energy_const.h ../H/fold_vars.h
+subopt.o: ../H/pair_mat.h list.h ../H/subopt.h ../H/params.h
+treedist.o: /usr/include/stdio.h /usr/include/features.h
+treedist.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+treedist.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+treedist.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+treedist.o: /usr/include/libio.h /usr/include/_G_config.h
+treedist.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+treedist.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+treedist.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+treedist.o: /usr/include/endian.h /usr/include/bits/endian.h
+treedist.o: /usr/include/bits/byteswap.h /usr/include/sys/types.h
+treedist.o: /usr/include/time.h /usr/include/sys/select.h
+treedist.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+treedist.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+treedist.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+treedist.o: /usr/include/string.h /usr/include/xlocale.h /usr/include/ctype.h
+treedist.o: ../H/edit_cost.h ../H/dist_vars.h ../H/utils.h
+utils.o: /usr/include/stdio.h /usr/include/features.h
+utils.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+utils.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+utils.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+utils.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+utils.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+utils.o: /usr/include/stdlib.h /usr/include/bits/waitflags.h
+utils.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+utils.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+utils.o: /usr/include/sys/types.h /usr/include/time.h
+utils.o: /usr/include/sys/select.h /usr/include/bits/select.h
+utils.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+utils.o: /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h
+utils.o: /usr/include/alloca.h /usr/include/errno.h /usr/include/bits/errno.h
+utils.o: /usr/include/linux/errno.h /usr/include/asm/errno.h
+utils.o: /usr/include/asm-generic/errno.h
+utils.o: /usr/include/asm-generic/errno-base.h /usr/include/string.h
+utils.o: /usr/include/xlocale.h ../config.h

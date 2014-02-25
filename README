@@ -1,0 +1,30 @@
+CONTENTS AND COPYRIGHT
+
+This package is used for maniputating genome annotation and seqeunce files, such as Bed, GenePred, BAM, Wiggle and BigWig formats. Users interested in this package should contact Yunfei.Wang1@utdallas.edu for details. This package uses the UCSC lib and inc directories (in KentLib), and users should read the README file inside and behave accordingly. All files are copyrighted, but license is hereby granted for personal, academic and non-profit use. Commercial users should contact Yunfei.Wang1@utdallas.edu.
+
+PREREQUISITES
+1. numpy
+2. pysam for SAM file manipulation
+
+GENERAL INSTALL INSTRUCTIONS
+
+1. This package is base on Python 2.6 and 2.7. This package is only tested on linux 64bit machines. Other platforms may not work well.
+2. Simply run the setup.py if you have root privilege, otherwise, specify the directory of your install path by "--prefix=install_path".
+   >python setup.py install --prefix=install_path
+3. Set the PYTHONPATH environment varialble.
+   >vi ~/.bash_profile
+   PYTHONPATH=$PYTHONPATH:install_path/lib/python2.6/site-packages
+   export PYTHONPATH
+   >source ~/.bash_profile
+
+
+MAJOR MODULES
+
+- IO: Read various biological data
+- DB: Build DB for genomic data for fast query.
+- Pipeline: Pipelines built using wrappers of commonly used tools.
+- Bed: Genomic coordinates data format.
+- BedList: A list of Bed instances.
+- wTwoBitIO: python module for retrieve fasta sequence from 2bit file.
+- wWigIO: python module for retrieve Wiggle region from BigWig file.
+- wRNA: python module to fold RNA structures.

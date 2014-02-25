@@ -1,0 +1,4 @@
+wLib = 1.1.0
+python >= 2.7
+numpy >= 1.6.2
+pysam >= 0.6
