@@ -1,5 +1,5 @@
 #!/bin/sh
-#Last-modified: 28 Jan 2014 04:18:41 PM
+#Last-modified: 26 Feb 2014 11:14:47 AM
 
 ####################### Module/Scripts Description ######################
 #  
@@ -10,7 +10,7 @@
 #  the distribution).
 #  
 #  @status:  experimental
-#  @version: 1.0.0
+#  @version: $Revision$
 #  @author:  Yunfei Wang
 #  @contact: tszn1984@gmail.com
 #

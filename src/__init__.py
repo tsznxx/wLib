@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#Last-modified: 20 Feb 2014 01:29:06 PM
+#Last-modified: 26 Feb 2014 11:18:40 AM
 
 #         Module/Scripts Description
 # 
@@ -739,6 +739,9 @@ class Seq(object):
     def length(self):
         ''' Length of sequence. '''
         return len(self.seq)
+    def __add__(self,B):
+        ''' Concatenate two sequences together. '''
+        return Seq(self.seq + str(B))
     def __str__(self):
         ''' Return the sequence. '''
         return self.seq
