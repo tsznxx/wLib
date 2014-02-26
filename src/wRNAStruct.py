@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#Last-modified: 24 Feb 2014 08:44:43 PM
+#Last-modified: 25 Feb 2014 04:04:13 PM
 
 #         Module/Scripts Description
 # 
@@ -61,7 +61,7 @@ class Fasta(object):
     def __init__(self,name,seq):
         ''' Initiation. '''
         self.name = name
-        self.seq = seq.upper().replace("T","U")
+        self.seq = seq.upper()
     def __len__(self):
         ''' length of sequence. '''
         return len(self.seq)
@@ -69,7 +69,9 @@ class Fasta(object):
         ''' Fasta in string. '''
         return ">{0}\n{1}".format(self.name,self.seq)
     def rc(self):
-        ''' Reverse complementary sequence. '''
+        '''
+        Do reverse complement of self.seq. No returns. 
+        '''
         self.seq = ''.join([rctable(c) for c in self.seq])
 
 class PARS(Fasta):
@@ -99,6 +101,8 @@ class PARS(Fasta):
         ''' Normalization. '''
         self.loops *= sratio
         self.stems *= vratio
+        if ntrim == 0:
+            return
         self.loops[0:ntrim] = 0
         self.stems[0:ntrim] = 0
         self.loops[-ntrim:] = 0
@@ -153,16 +157,39 @@ class FastS(Fasta):
         .......((((((((............)))).))))..............  (-6.0)
         .......(((((((..............))).))))..............  (-4.0)
     '''
-    def __init__(self, name, seq, structures, scores):
-        ''' Initiation. '''
+    def __init__(self, name, seq, structures, scores=None):
+        '''
+        Initiation.
+
+        Parameters:
+            name: string
+                Name of sequence.
+            seq: string
+                RNA sequences.
+            structures: string or list of strings
+                RNA structure in Dot-Bracket format.
+            scores: None, float or list of float
+                A score of each structure. Could be the MFE score, the percentage or any other scores.
+        Returns:
+            fs: FastS object
+                FastS object
+        '''
         super(FastS,self).__init__(name,seq)
-        self.structures = structures
-        self.scores = scores
+        if isinstance(structures,basestring):
+            self.structures = [structures]
+        else:
+            self.structures = [st for st in structures]
+        if scores is None:
+            self.scores = [1./len(self.structures)] * len(self.structures)
+        elif isinstance(scores,int) or isinstance(scores,float):
+            self.scores = [float(scores)]
+        else:
+            self.scores = [float(sc) for sc in scores]
     def __str__(self):
         ''' FastS string. '''
         lstr = ">{0}\n{1}".format(self.name,self.seq)
         for st, sc in izip(self.structures, self.scores):
-            lstr += "\n{0}\t({1})".format(st, round(sc,2))
+            lstr += "\n{0}\t({1})".format(st, round(sc,3))
         return lstr
 
 class IO(object):

@@ -1,0 +1,22 @@
+# Compiled source #
+###################
+build/
+dist/
+*.o
+*.so
+
+# Installaltion record #
+########################
+installed_files.txt
+
+# Notebook files #
+##################
+notebook/
+
+# In development #
+##################
+
+
+# Python EGG folder #
+#####################
+wLib.egg-info/
