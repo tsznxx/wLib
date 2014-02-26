@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#Last-modified: 26 Feb 2014 11:18:40 AM
+#Last-modified: 26 Feb 2014 11:53:28 AM
 
 #         Module/Scripts Description
 # 
@@ -742,6 +742,9 @@ class Seq(object):
     def __add__(self,B):
         ''' Concatenate two sequences together. '''
         return Seq(self.seq + str(B))
+    def __radd__(self,B):
+        ''' Concatenate two sequences together. '''
+        return Seq(str(B)+self.seq)
     def __str__(self):
         ''' Return the sequence. '''
         return self.seq
